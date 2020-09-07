@@ -1,0 +1,40 @@
+#include<iostream.h>
+#include<conio.h>
+class stud
+{
+ public:
+  int regno,m1,m2,m3,tot;
+  char name[30];
+  void getdata()
+  {
+   cout<<"Enter register number:";
+   cin>>regno;
+   cout<<"Enter Name           :";
+   cin>>name;
+   cout<<"Enter mark 1         :";
+   cin>>m1;
+   cout<<"Enter mark 2         :";
+   cin>>m2;
+   cout<<"Enter mark 3         :";
+   cin>>m3;
+   tot=m1+m2+m3;
+  }
+  stud* operator>(stud s2)
+  {
+   int t1,t2;
+   t2=s2.tot;
+   t1=tot;
+   if(t2>t1)
+    return (s2);
+   else
+    return(this);
+  }
+};
+void main()
+{
+ stud sa,sb,*r;
+ sa.getdata();
+ sb.getdata();
+ r=sa>sb;
+ cout<<"The greatest total is="<<r->tot;
+}

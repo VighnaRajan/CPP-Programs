@@ -1,0 +1,43 @@
+#include<iostream.h>
+#include<conio.h>
+class shape
+{
+ int l,b,h,a;
+ public:
+  void readval();
+  int area();
+  friend float cost(shape);
+};
+void shape::readval()
+{
+ cout<<"Enter length:";
+ cin>>l;
+ cout<<"Enter breadth:";
+ cin>>b;
+ cout<<"Enter height:";
+ cin>>h;
+}
+int shape::area()
+{
+ a=2*((l*b)+(b*h)+(h*l));
+ cout<<"Area="<<a;
+ return a;
+}
+float cost(shape z)
+{
+ int cost,amount;
+ cout<<"\nEnter the cost for per unit area:";
+ cin>>cost;
+ amount=z.a*cost;
+ return amount;
+}
+void main()
+{
+ shape s;
+ float amount;
+ clrscr();
+ s.readval();
+ s.area();
+ cout<<"It costs="<<cost(s);
+ getch();
+}
